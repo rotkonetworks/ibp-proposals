@@ -23,8 +23,7 @@ jobs:
 
     - name: Generate README
       run: |
-        cd scripts
-        rustc generate_readme.rs -o generate_readme
+        rustc scripts/generate_readme.rs -o generate_readme
         ./generate_readme
 
     - name: Commit and Push README.md
