@@ -44,6 +44,10 @@ in configuring HAProxy for redundancy and backup services, a key strategy in mai
   It binds the scalability of services to the domain's scalability, potentially leading to bottlenecks.
 - **Operational Rigidity:** Adjusting backup configurations or scaling services requires significant
   changes to HAProxy's setup, reducing operational agility.
+- **Challenge to launch new networks:** Adding new network to GeoDNS is currently challenging with single subdomain
+  for relay and system parachain services. All providers are required to have new deploys ready on the same day
+  to avoid any downtime around the world. Having subdomains instead of paths for each network would allow to have
+  full control for each network.
 
 ## 5. Proposal for Subdomain-Based Routing
 
@@ -63,5 +67,6 @@ Transitioning to a subdomain-based model (`$network.rpc.ibp.network`) addresses 
 The current path-based routing model introduces significant challenges in configuring HAProxy for effective
 redundancy and high availability. This RFC advocates for a shift to a subdomain-based routing model, which
 promises to streamline backup configurations, enhance security, and improve overall system scalability and
-flexibility. This transition is a strategic step towards achieving a more resilient and robust infrastructure
-for our blockchain RPC services.
+flexibility. Transition to subdomain-based routing would require improvements in automation of GeoDNS to avoid
+causing too much burden for Gatotech and Stake.plus teams.
+
